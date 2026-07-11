@@ -23,6 +23,9 @@ COPY . .
 
 # On utilise EXACTEMENT les noms attendus par Next.js
 
+
+# On utilise EXACTEMENT les noms attendus par Next.js
+
 ARG supabaseUrl
 ARG supabaseserviceroleKey
 ARG WEBHOOK_URL
@@ -31,6 +34,8 @@ ARG NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
 
 # On les transforme en variables d'environnement pour le build
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 ENV supabaseUrl=$supabaseUrl
 ENV supabaseserviceroleKey=$supabaseserviceroleKey
 ENV WEBHOOK_URL=$WEBHOOK_URL
