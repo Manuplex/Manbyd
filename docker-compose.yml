@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # buildkit: true  <-- C'est déprécié ici, il vaut mieux l'activer via l'environnement local
+      args: # <-- args DOIT être indenté ici, à l'intérieur de build !
+        supabaseUrl: ${NEXT_PUBLIC_SUPABASE_URL}
+        supabaseserviceroleKey: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+        WEBHOOK_URL: ${WEBHOOK_URL}
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+
+    container_name: manbyd-app
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

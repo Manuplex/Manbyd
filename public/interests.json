@@ -1,0 +1,30 @@
+[
+    {
+        "name": "code",
+        "url":"/manbyd_icons/code.png"
+    },
+    {
+        "name": "music",
+        "url":"/manbyd_icons/headphones.png"
+    },
+    {
+        "name":"processes",
+        "url":"/manbyd_icons/workflow.png"
+    },
+    {
+        "name":"design",
+        "url":"/manbyd_icons/web-design.png"
+    },
+    {
+        "name":"cash",
+        "url":"/manbyd_icons/cash.png"
+    },
+    {
+        "name": "Anime",
+        "url":"/anime.jpeg"
+    },
+    {
+        "name": "Editing Video",
+        "url":"/manbyd_icons/editing.png"
+    }
+]
