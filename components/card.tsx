@@ -52,8 +52,8 @@ export default function Card({
           {title}
         </h3>
         
-        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-          {description ?? "Une compétence à explorer avec une approche soignée et moderne."}
+        <p className="mb-6 line-clamp-3 text-2xl font-bold font- leading-relaxed text-white ">
+          {description}
         </p>
         
         {/* Zone Action (Bouton & Children) alignée en bas */}

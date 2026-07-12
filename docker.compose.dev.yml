@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    container_name: manbyd-app
+    volumes:
+      - .:/app               # Monte votre code local dans le conteneur
+      - /app/node_modules
+    command: pnpm run dev
+    environment:
+      - NODE_ENV=development
