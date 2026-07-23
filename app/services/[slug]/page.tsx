@@ -74,7 +74,7 @@ export default async function ServiceArticles({
             const imageSrc = typeof article.Image === "string" ? article.Image : undefined;
             const description = typeof article.price === "number" ? article.price : undefined;
             const articleSlug = slugify(title);
-      
+
             const isSpecial = Boolean(article?.special);
 
             return (

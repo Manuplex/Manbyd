@@ -31,6 +31,7 @@ ARG supabaseserviceroleKey
 ARG WEBHOOK_URL
 ARG NEXT_PUBLIC_SUPABASE_URL
 ARG NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+ARG NEXT_PUBLIC_GTM_ID
 
 
 # On les transforme en variables d'environnement pour le build
@@ -39,6 +40,7 @@ ENV NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 ENV supabaseUrl=$supabaseUrl
 ENV supabaseserviceroleKey=$supabaseserviceroleKey
 ENV WEBHOOK_URL=$WEBHOOK_URL
+ENV NEXT_PUBLIC_GTM_ID=$NEXT_PUBLIC_GTM_ID
 
 
 # Build l'application et nettoyer les caches
@@ -65,10 +67,10 @@ RUN --mount=type=cache,id=npm,target=/root/.npm \
 
 # Copier uniquement les fichiers nécessaires depuis le builder
 COPY --from=builder --chown=node:node /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/next.config.ts ./next.config.ts
+COPY --from=builder --chown=node:node /app/.next ./.next
+COPY --from=builder --chown=node:node /app/public ./public
+COPY --from=builder --chown=node:node /app/package.json ./package.json
+COPY --from=builder --chown=node:node /app/next.config.ts ./next.config.ts
 
 # User non-root pour la sécurité
 USER node
@@ -82,3 +84,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 
 # Lancer l'application
 CMD ["pnpm", "start"]
+

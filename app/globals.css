@@ -3,11 +3,18 @@
 :root {
   --background: #020617;
   --foreground: #f8fafc;
+  --react-international-phone-background-color:bg-slate-800;
+  --react-international-phone-text-color:var(--foreground);
+  --react-international-phone-disabled-background-color:white;
+  --react-international-phone-dropdown-item-background-color:white;
+  --react-international-phone-dropdown-item-text-color:black;
+  --react-international-phone-selected-dropdown-item-text-color:rgba(14, 147, 255, 0.726);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
 }
 
 html {

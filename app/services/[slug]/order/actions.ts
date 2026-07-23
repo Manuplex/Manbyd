@@ -15,10 +15,12 @@ export default async function Action(
   cartItems: CartData,
   prevState: ActionState,
   formData: FormData
-): Promise<ActionState> {
+): Promise<ActionState>
+{
   const details = {
     name: formData.get('name'),
     phoneNumber: formData.get('number'),
+    email: formData.get('email'),
   };
 
   const result = PhoneSchema.safeParse(details);
@@ -31,8 +33,10 @@ export default async function Action(
   const payload = {
     name: result.data.name,
     phoneNumber: result.data.phoneNumber,
+    email: result.data.email,
     items: cartItems.items,
   };
+  console.log(payload.phoneNumber);
 
   try {
     const res = await fetch(process.env.WEBHOOK_URL!, {

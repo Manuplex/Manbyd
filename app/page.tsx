@@ -59,7 +59,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex min-h-10 flex-wrap items-center gap-3 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
+              className="flex min-h-10 flex-wrap items-center gap-3 text-4xl h-40 font-semibold leading-tight sm:text-5xl lg:text-6xl"
             >
               <Image src="/emoji_hi.png" alt="greetings_icon" width={40} height={40} />
               <span>{displayedText}</span>
@@ -70,7 +70,7 @@ export default function Home() {
               />
             </motion.h1>
 
-            <p className="max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="max-w-2xl text-lg pt-4 md:pt-2 lg:mt-28 leading-8 text-slate-300">
               Je conçois des interfaces modernes, des expériences fluides et des solutions utiles pour accompagner vos idées.
             </p>
 
